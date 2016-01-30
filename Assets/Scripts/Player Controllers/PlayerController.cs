@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class PlayerController : Entity
 {
+    // Core presenter
+    private PlayerPresenter playerPresenter;
+
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -17,9 +20,11 @@ public class PlayerController : Entity
     public LayerMask GameplayLayerMask;
 
     // Initialize this class
-    public void Initialize()
+    public void Initialize(PlayerPresenter playerPresenter)
 	{
         // Set initial player variables
+        this.playerPresenter = playerPresenter;
+
         this.InputController = this.GetComponentInChildren<PlayerInput>();
         this.MovementController = this.GetComponentInChildren<PlayerMovementController>();
         this.CameraController = this.GetComponentInChildren<PlayerCameraController>();
@@ -82,7 +87,8 @@ public class PlayerController : Entity
         // Kill unit
         base.Kill();
 
-        // todo: request player respawn
+        // Request player respawn
+        this.playerPresenter.RequestPlayerRespawn(this);
     }
 
     #endregion

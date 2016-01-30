@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class PlayerPresenter : MonoBehaviour {
 
@@ -8,6 +9,10 @@ public class PlayerPresenter : MonoBehaviour {
     
     // Player score references
     public float[] PlayerScores;
+    
+    // Player respawn variables
+    [Range(0,10)]
+    public float RespawnDelay = 2.0f;                
 
 	// Use this for initialization
 	public void Initialize () {
@@ -19,7 +24,7 @@ public class PlayerPresenter : MonoBehaviour {
 
         // Initialize all players
 	    foreach (var player in this.players)
-	        player.Initialize();
+	        player.Initialize(this);
 	}
 	
 	// Update is called once per frame
@@ -29,6 +34,36 @@ public class PlayerPresenter : MonoBehaviour {
         this.UpdatePlayerScores();
     }
 
+    #region Respawing
+    public void RequestPlayerRespawn(PlayerController playerToRespawn)
+    {
+        // Check if the player is registered
+        if (this.players.Contains(playerToRespawn))
+            StartCoroutine("DelayedRespawn", playerToRespawn);
+    }
+
+    IEnumerator DelayedRespawn(PlayerController player)
+    {
+        // Wait the respawn coldown
+        yield return new WaitForSeconds(this.RespawnDelay);
+
+        this.RespawnPlayer(player);
+    }
+
+    private void RespawnPlayer(PlayerController player)
+    {
+        Debug.Log("Respawning Player: " + player.name);
+
+        // todo: move player to valid respawn location
+
+        // Restore player stats
+        player.Resurrect();
+
+    }
+
+    #endregion
+
+    #region Scoring
     // Update the human player score
     private void UpdatePlayerScores()
     {
@@ -42,4 +77,5 @@ public class PlayerPresenter : MonoBehaviour {
             }
         }
     }
+    #endregion
 }
