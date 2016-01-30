@@ -930,6 +930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fd7bb93137e8440908da021536b809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HumanLights:
+  - {fileID: 1695485646}
 --- !u!4 &583747974 stripped
 Transform:
   m_PrefabParentObject: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
@@ -2548,7 +2550,7 @@ GameObject:
   - 4: {fileID: 1695485645}
   - 108: {fileID: 1695485646}
   m_Layer: 0
-  m_Name: Directional light (Sun)
+  m_Name: Human Light
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2575,7 +2577,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.72794116, b: 0.48696756, a: 1}
   m_Intensity: 0.33
   m_Range: 10
   m_SpotAngle: 30

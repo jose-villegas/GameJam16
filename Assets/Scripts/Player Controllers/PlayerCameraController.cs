@@ -44,11 +44,13 @@ public class PlayerCameraController : MonoBehaviour {
         this.originalCameraDistance = Vector3.Distance(this.transform.parent.position, this.mainCamera.transform.position);
     }
 
+
     // Update is called once per frame
     public void UpdateCamera(InputInstance inputInstance)
     {
         // Execute camera rotation
         this.ExecuteCameraVerticalRotation(inputInstance);
+
         // Execute camera collisions
         this.ExecuteCameraCollisions();
 
