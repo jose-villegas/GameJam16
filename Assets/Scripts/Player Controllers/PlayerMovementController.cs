@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -185,7 +186,7 @@ public class PlayerMovementController : MonoBehaviour
     public void FixedUpdateMovement(InputInstance inputInstance)
     {
         // End game check
-        if (GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
+        if (GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running || !this.mainPlayerController.IsAlive)
         {
             this.rigidBody.velocity = Vector3.zero;
             return;
@@ -263,6 +264,21 @@ public class PlayerMovementController : MonoBehaviour
         
         // Set player final velocity
         this.SetPlayerVelocity(inputX, inputY, velocity);
+    }
+
+    public void Stop()
+    {
+        StopCoroutine("EffectiveStop");
+        StartCoroutine("EffectiveStop");
+    }
+
+    IEnumerator EffectiveStop()
+    {
+        this.rigidBody.velocity = Vector3.zero;
+        this.rigidBody.isKinematic = true;
+        yield return new WaitForSeconds(0.1f);
+        this.rigidBody.isKinematic = false;
+        this.rigidBody.velocity = Vector3.zero;
     }
 
     private void UpdatePlayerRotation(InputInstance inputInstance)
@@ -756,14 +772,6 @@ public class PlayerMovementController : MonoBehaviour
 
                 //finally, add movement velocity to player rigidbody velocity
                 this.rigidBody.AddForce(finalWallSliding + slopeSlidingForce, ForceMode.VelocityChange);
-            }
-        }
-        else
-        {
-            //if player is dead or Restarting level set velocity to zero to prevent rigidbody from moving when camera is stopped
-            if (this.mainPlayerController.HitPoints <= 0)
-            {
-                this.rigidBody.velocity = Vector3.zero;
             }
         }
 

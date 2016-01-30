@@ -11,6 +11,7 @@ public class GamePresenter : MonoBehaviour {
 
     // Core presenters
     private PlayerPresenter playerPresenter;
+    private EnvironmentPresenter environmentPresenter;
 
     // Match parameters
     public State CurrentMatchState = State.NonStarted;
@@ -32,9 +33,11 @@ public class GamePresenter : MonoBehaviour {
 
 	    // Get core presenters
         this.playerPresenter = this.GetComponentInChildren<PlayerPresenter>();
+        this.environmentPresenter = this.GetComponentInChildren<EnvironmentPresenter>();
 
         // Initialize core presenters
-        this.playerPresenter.Initialize();
+        this.environmentPresenter.Initialize();
+        this.playerPresenter.Initialize(this.environmentPresenter);
 
         // Display connected gamepad
         this.PrintGamepad();

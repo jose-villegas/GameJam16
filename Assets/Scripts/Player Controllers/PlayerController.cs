@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -75,6 +76,14 @@ public class PlayerController : Entity
 
     #region Player Events
 
+    public override void Resurrect()
+    {
+        base.Resurrect();
+
+        // Stop player
+        this.MovementController.Stop();
+    }
+
     public override void ChangeRole(PlayerType newRole, bool respawn = false)
     {
         base.ChangeRole(newRole, respawn);
@@ -84,6 +93,9 @@ public class PlayerController : Entity
 
     public override void Kill()
     {
+        // Stop player
+        this.MovementController.Stop();
+
         // Change player role to monster again
         this.ChangeRole(PlayerType.Monster);
 

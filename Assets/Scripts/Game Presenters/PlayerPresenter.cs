@@ -5,6 +5,9 @@ using System.Linq;
 
 public class PlayerPresenter : MonoBehaviour {
 
+    // Core component references
+    private EnvironmentPresenter environmentPresenter;
+
     // Player references
     private PlayerController[] players;
     
@@ -12,11 +15,16 @@ public class PlayerPresenter : MonoBehaviour {
     public float[] PlayerScores;
     
     // Player respawn variables
+    [Range(0,1)]
+    public float SafetyOffset = 0.25f;
     [Range(0,10)]
     public float RespawnDelay = 2.0f;                
 
 	// Use this for initialization
-	public void Initialize () {
+	public void Initialize (EnvironmentPresenter environmentPresenter) {
+        // Store environment presenters
+	    this.environmentPresenter = environmentPresenter;
+
 	    // Get player references
 	    this.players = this.GetComponentsInChildren<PlayerController>();
 
@@ -56,8 +64,9 @@ public class PlayerPresenter : MonoBehaviour {
     {
         Debug.Log("Respawning Player: " + player.name);
 
-        // todo: move player to valid respawn location
-
+        // Move player to valid respawn location
+        player.transform.position = this.environmentPresenter.GetValidPlayerSpawnPosition();
+        player.transform.position += Vector3.up*this.SafetyOffset;
         // Restore player stats
         player.Resurrect();
 
