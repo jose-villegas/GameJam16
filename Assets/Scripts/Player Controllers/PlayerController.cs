@@ -39,6 +39,9 @@ public class PlayerController : Entity
     // Update is called once per frame
     void Update()
     {
+        if (GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
+            return;
+
         // Update player input given the current input key configuration
         this.InputController.UpdateInput();
 
@@ -97,7 +100,7 @@ public class PlayerController : Entity
     public void ReactGameplayCollision(Entity entity)
     {
         // Only react to the entity if it's alive
-        if (!entity.IsAlive || !this.IsAlive)
+        if (!entity.IsAlive || !this.IsAlive || GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
             return;
         
         // Reactions as monster (only the monster reacts to gameplay collisions)

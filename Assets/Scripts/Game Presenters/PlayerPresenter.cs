@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 public class PlayerPresenter : MonoBehaviour {
@@ -30,8 +31,9 @@ public class PlayerPresenter : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // Update player scores
-        this.UpdatePlayerScores();
+        if(GamePresenter.Instance.CurrentMatchState == GamePresenter.State.Running)
+            // Update player scores
+            this.UpdatePlayerScores();
     }
 
     #region Respawing
@@ -77,5 +79,26 @@ public class PlayerPresenter : MonoBehaviour {
             }
         }
     }
+
+    public PlayerController GetHighestScorePlayer()
+    {
+        float maxScore = this.PlayerScores.Concat(new float[] {0}).Max();
+
+        List<int> maxPlayerControllerIndexes = new List<int>();
+        for (var index = 0; index < this.PlayerScores.Length; index++)
+        {
+            var playerScore = this.PlayerScores[index];
+            if (playerScore >= maxScore)
+                maxPlayerControllerIndexes.Add(index);
+        }
+
+        // If there is more than one max score player, return draw
+        if (maxPlayerControllerIndexes.Count > 1)
+            return null;
+        else
+            return this.players[maxPlayerControllerIndexes[0]];
+
+    }
+
     #endregion
 }

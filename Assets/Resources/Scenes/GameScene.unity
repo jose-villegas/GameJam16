@@ -2276,6 +2276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerScores: []
+  RespawnDelay: 2
 --- !u!114 &1659830664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313a41eb8fbfb4945aa19e6c450a43c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentMatchState: 0
+  MatchDuration: 180
+  CurrentMatchDuration: 0
 --- !u!1 &1667208839
 GameObject:
   m_ObjectHideFlags: 0
