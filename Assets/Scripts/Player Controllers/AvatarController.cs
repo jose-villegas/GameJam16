@@ -16,6 +16,9 @@ public class AvatarController : MonoBehaviour {
     public void Initialize (PlayerController playerController) {
         // Store main player component reference
         this.mainPlayerController = playerController;
+
+        // Set initial avatar
+        this.ChangePlayerAvatar(this.mainPlayerController.Type);
     }
 
     #region Avatar Animation
@@ -35,6 +38,9 @@ public class AvatarController : MonoBehaviour {
     #region Avatar Management
     public void ChangePlayerAvatar(Entity.PlayerType playerType)
     {
+        if (this.MonsterAvatar == null || this.HumanAvatar == null)
+            return;
+
         switch (playerType)
         {
             case Entity.PlayerType.Human:
