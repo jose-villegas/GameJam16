@@ -184,6 +184,13 @@ public class PlayerMovementController : MonoBehaviour
     // FixedUpdate is called once per frame
     public void FixedUpdateMovement(InputInstance inputInstance)
     {
+        // End game check
+        if (GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
+        {
+            this.rigidBody.velocity = Vector3.zero;
+            return;
+        }
+
         // Before doing anything, apply current gravity vector
         this.UpdateCurrentGravity(inputInstance);
 
@@ -652,6 +659,7 @@ public class PlayerMovementController : MonoBehaviour
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void SetPlayerVelocity(float inputX, float inputY, Vector3 velocity)
     {
+
         //limit speed if strafing diagonally
         this.limitStrafeSpeed = (inputX != 0.0f && inputY != 0.0f) ? .7071f : 1.0f;
 

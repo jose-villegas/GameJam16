@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 51502736}
   - 33: {fileID: 51502738}
   - 23: {fileID: 51502737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 76929646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - 4: {fileID: 384650116}
   - 33: {fileID: 384650118}
   - 23: {fileID: 384650117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 393423710}
   - 114: {fileID: 393423711}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - 20: {fileID: 492609081}
   - 124: {fileID: 492609080}
   - 92: {fileID: 492609079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - 4: {fileID: 562292331}
   - 33: {fileID: 562292333}
   - 23: {fileID: 562292332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,6 +819,10 @@ Transform:
   - {fileID: 1599906071}
   m_Father: {fileID: 1659830662}
   m_RootOrder: 4
+--- !u!4 &583747974 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_PrefabInternal: {fileID: 1324125985}
 --- !u!1 &603013961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1060,7 @@ GameObject:
   - 114: {fileID: 704458611}
   - 136: {fileID: 704458610}
   - 54: {fileID: 704458609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 3
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1076,7 +1080,7 @@ Transform:
   - {fileID: 393423710}
   - {fileID: 76929646}
   m_Father: {fileID: 812297576}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!54 &704458609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1201,6 +1205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  GameplayLayerMask:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &779543774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,7 +1217,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 779543775}
   - 114: {fileID: 779543776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,6 +1282,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 583747974}
   - {fileID: 1833800023}
   - {fileID: 969681458}
   - {fileID: 704458608}
@@ -1290,7 +1298,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 874807197}
   - 114: {fileID: 874807198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1346,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 942238810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1379,7 @@ GameObject:
   - 114: {fileID: 969681461}
   - 136: {fileID: 969681460}
   - 54: {fileID: 969681459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 2
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1391,7 +1399,7 @@ Transform:
   - {fileID: 874807197}
   - {fileID: 2059752943}
   m_Father: {fileID: 812297576}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!54 &969681459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1516,6 +1524,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  GameplayLayerMask:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1001 &1095621391
 Prefab:
   m_ObjectHideFlags: 0
@@ -1553,11 +1564,39 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 160304, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 160304, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137908, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 160304, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 110460, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112722, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 129552, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449802, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: GameplayLayerMask.m_Bits
+      value: 768
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
@@ -1821,6 +1860,104 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1001 &1324125985
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 812297576}
+    m_Modifications:
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160304, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Name
+      value: Player 1 (Keyboard version)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.HorizontalInput
+      value: Mouse X
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.VerticalInput
+      value: Mouse Y
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.TControlType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.Sprint
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.Crouch
+      value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.Jump
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499292, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: InputConfiguration.Dive
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449802, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: GameplayLayerMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 129552, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 112722, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 110460, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 160304, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 137908, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1327367362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,7 +2026,7 @@ GameObject:
   - 114: {fileID: 1387987908}
   - 136: {fileID: 1387987907}
   - 54: {fileID: 1387987906}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 4
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -1909,7 +2046,7 @@ Transform:
   - {fileID: 779543775}
   - {fileID: 942238810}
   m_Father: {fileID: 812297576}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!54 &1387987906
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2034,6 +2171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  GameplayLayerMask:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &1511147374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +2238,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1659830662}
+  - 114: {fileID: 1659830664}
+  - 114: {fileID: 1659830663}
   m_Layer: 0
   m_Name: Game Presenter
   m_TagString: Untagged
@@ -2122,6 +2264,33 @@ Transform:
   - {fileID: 566265210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1659830663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659830661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3347d6797bc11d44c9496d8098888421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerScores: []
+  RespawnDelay: 2
+--- !u!114 &1659830664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659830661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313a41eb8fbfb4945aa19e6c450a43c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentMatchState: 0
+  MatchDuration: 180
+  CurrentMatchDuration: 0
 --- !u!1 &1667208839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,7 +2452,7 @@ GameObject:
   - 20: {fileID: 1919609664}
   - 124: {fileID: 1919609663}
   - 92: {fileID: 1919609662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2364,7 +2533,7 @@ GameObject:
   - 20: {fileID: 1952620588}
   - 124: {fileID: 1952620587}
   - 92: {fileID: 1952620586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2641,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2059752943}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

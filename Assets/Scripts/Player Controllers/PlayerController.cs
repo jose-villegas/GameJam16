@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class PlayerController : Entity
 {
+    // Core presenter
+    private PlayerPresenter playerPresenter;
+
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -16,12 +19,12 @@ public class PlayerController : Entity
     // Collisions
     public LayerMask GameplayLayerMask;
 
-    /// <summary>
-    /// Only this player component must use the start and update methods
-    /// </summary>
-    public void Start()
+    // Initialize this class
+    public void Initialize(PlayerPresenter playerPresenter)
 	{
         // Set initial player variables
+        this.playerPresenter = playerPresenter;
+
         this.InputController = this.GetComponentInChildren<PlayerInput>();
         this.MovementController = this.GetComponentInChildren<PlayerMovementController>();
         this.CameraController = this.GetComponentInChildren<PlayerCameraController>();
@@ -36,6 +39,9 @@ public class PlayerController : Entity
     // Update is called once per frame
     void Update()
     {
+        if (GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
+            return;
+
         // Update player input given the current input key configuration
         this.InputController.UpdateInput();
 
@@ -78,9 +84,14 @@ public class PlayerController : Entity
 
     public override void Kill()
     {
+        // Change player role to monster again
+        this.ChangeRole(PlayerType.Monster);
+
+        // Kill unit
         base.Kill();
 
-        // todo: request player respawn
+        // Request player respawn
+        this.playerPresenter.RequestPlayerRespawn(this);
     }
 
     #endregion
@@ -88,6 +99,10 @@ public class PlayerController : Entity
     #region Collisions
     public void ReactGameplayCollision(Entity entity)
     {
+        // Only react to the entity if it's alive
+        if (!entity.IsAlive || !this.IsAlive || GamePresenter.Instance.CurrentMatchState != GamePresenter.State.Running)
+            return;
+        
         // Reactions as monster (only the monster reacts to gameplay collisions)
         if (this.Type == PlayerType.Monster)
         {
@@ -95,6 +110,7 @@ public class PlayerController : Entity
             {
                 case PlayerType.Human:
                     // Eat the human and take its role
+                    Debug.Log(this.gameObject.name+"("+this.Type+") Kills human: "+ entity.gameObject.name+"(" + entity.Type + ")");
                     entity.Kill();
                     this.ChangeRole(PlayerType.Human);
                     break;
