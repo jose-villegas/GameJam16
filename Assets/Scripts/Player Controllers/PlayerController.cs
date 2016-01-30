@@ -12,6 +12,9 @@ public class PlayerController : Entity
     // Core presenter
     private PlayerPresenter playerPresenter;
 
+    // Main player identifier
+    public ID PlayerId = ID.Player1;
+
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -145,4 +148,13 @@ public class PlayerController : Entity
     }
 
     #endregion
+
+    public enum ID
+    {
+        Player1,
+        Player2,
+        Player3,
+        Player4
+    }
+
 }

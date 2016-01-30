@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 2
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -1649,6 +1650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 1
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -2357,6 +2359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 3
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
