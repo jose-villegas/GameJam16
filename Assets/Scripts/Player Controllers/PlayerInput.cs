@@ -24,6 +24,7 @@ public class PlayerInput : MonoBehaviour
 
         // Initialize input class
         this.InputInstance = new InputInstance();
+
         // Display connected gamepad
         this.PrintGamepad();
 
@@ -35,7 +36,6 @@ public class PlayerInput : MonoBehaviour
         while (i < Input.GetJoystickNames().Length)
         {
             Debug.Log(Input.GetJoystickNames()[i]);
-
             i++;
         }
     }
@@ -57,15 +57,21 @@ public class InputInstance
     public float MoveForward;
     public float StrafeRight;
 
+    public float VerticalLook;
+    public float HorizontalLook;
+
     public bool Sprint;
     public bool Jump;
     public bool Crouch;
     public bool Dive;
 
-
     public void Update(InputConfiguration config)
     {
         this.Config = config;
+
+        // General input
+        this.HorizontalLook = Input.GetAxisRaw(config.HorizontalInput);
+        this.VerticalLook = Input.GetAxisRaw(config.VerticalInput);
 
         // Keyboard input
         if (this.Config.TControlType == ControlType.Keyboard)
@@ -75,8 +81,7 @@ public class InputInstance
 
             this.StrafeRight = Input.GetKey(config.StrafeRight) ? 1 : 0;
             this.StrafeRight = Input.GetKey(config.StrafeLeft) ? -1 : this.StrafeRight;
-
-
+            
             this.Sprint = Input.GetKey(config.Sprint);
             this.Crouch = Input.GetKey(config.Crouch);
             this.Jump = Input.GetKey(config.Jump);

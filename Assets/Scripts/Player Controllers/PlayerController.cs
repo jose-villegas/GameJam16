@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
+    public PlayerCameraController CameraController { get; private set; }
 
     /// <summary>
     /// Only this player component must use the start and update methods
@@ -24,10 +25,12 @@ public class PlayerController : MonoBehaviour
         // Set initial player variables
         this.InputController = this.GetComponentInChildren<PlayerInput>();
         this.MovementController = this.GetComponentInChildren<PlayerMovementController>();
+        this.CameraController = this.GetComponentInChildren<PlayerCameraController>();
 
         // Initialize player components
         this.InputController.Initialize(this);
         this.MovementController.Initialize(this);
+        this.CameraController.Initialize(this);
 	}
 
     #region Player Components Update
@@ -56,7 +59,7 @@ public class PlayerController : MonoBehaviour
         // todo:
 
         // Update controlers using updated player input if required
-        // todo:
+        this.CameraController.UpdateCamera(this.InputController.InputInstance);
     }
 
     // Update player controllers every physics frame
