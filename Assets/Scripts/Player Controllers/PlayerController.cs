@@ -15,6 +15,9 @@ public class PlayerController : Entity
     // Main player identifier
     public ID PlayerId = ID.Player1;
 
+    // Flashlight
+    public GameObject FlashLight;
+
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -66,6 +69,8 @@ public class PlayerController : Entity
     // Update player controllers every frame
     private void UpdateControllers()
     {
+        // Update flashlight
+        this.FlashLight.gameObject.SetActive(this.Type == PlayerType.Monster);
 
         // Update controlers using updated player input if required
         this.CameraController.UpdateCamera(this.InputController.InputInstance);
