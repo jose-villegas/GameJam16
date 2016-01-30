@@ -10,6 +10,9 @@ public class EnvironmentPresenter : MonoBehaviour
     // Rooms references
     private RoomPresenter[] rooms = new RoomPresenter[0];
 
+    // Initial player power up
+    public GameObject InitialPlayerPowerUp;
+
 	// Use this for initialization
 	public void Initialize () {
 
