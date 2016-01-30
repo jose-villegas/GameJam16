@@ -28,8 +28,12 @@ public class PlayerController : Entity
     public LayerMask GameplayLayerMask;
 
     // Initialize this class
-    public void Initialize(PlayerPresenter playerPresenter)
+    public void Initialize(PlayerPresenter playerPresenter,int index, Vector4 cameraConfiguration)
 	{
+        // Set player identifier
+        this.PlayerId = (ID) index;
+        this.transform.name = this.PlayerId.ToString();
+
         // Set initial player variables
         this.playerPresenter = playerPresenter;
 
@@ -41,7 +45,7 @@ public class PlayerController : Entity
         // Initialize player components
         this.InputController.Initialize(this);
         this.MovementController.Initialize(this);
-        this.CameraController.Initialize(this);
+        this.CameraController.Initialize(this, cameraConfiguration);
         this.PlayerAvatarController.Initialize(this);
 	}
 
