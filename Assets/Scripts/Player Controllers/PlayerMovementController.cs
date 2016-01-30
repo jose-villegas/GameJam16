@@ -142,8 +142,12 @@ public class PlayerMovementController : MonoBehaviour
     public float FallingDamageThreshold = 5.5f;//Units that player can fall before taking damage
     public float AntiBunnyHopFactor = 0.35f;//to limit the time between player jumps
 
+    // Camera control parameters (rotation)
+    private float rotationX = 0.0f;
+    private Quaternion originalLocalRotation;
+
     // Use this for initialization
-	public void Initialize(PlayerController playerController)
+    public void Initialize(PlayerController playerController)
     {
         // Store main player component reference
 		this.mainPlayerController = playerController;
@@ -161,6 +165,9 @@ public class PlayerMovementController : MonoBehaviour
         this.CrouchSpeedMultiplier = Mathf.Clamp01(this.CrouchSpeedMultiplier);
         this.StrafeSpeedMultiplier = Mathf.Clamp01(this.StrafeSpeedMultiplier);
         this.ZoomSpeedMultiplier = Mathf.Clamp01(this.ZoomSpeedMultiplier);
+
+        // Store variables
+        this.originalLocalRotation = this.transform.localRotation;
     }
 
     #region Gravity Management
@@ -180,6 +187,9 @@ public class PlayerMovementController : MonoBehaviour
         // Before doing anything, apply current gravity vector
         this.UpdateCurrentGravity(inputInstance);
 
+        // Update player horizontal rotation
+        this.UpdatePlayerRotation(inputInstance);
+
         // Set initial parameters
         RaycastHit hit = new RaycastHit();
 
@@ -189,6 +199,7 @@ public class PlayerMovementController : MonoBehaviour
 
         //track rigidbody velocity
         Vector3 velocity = this.rigidBody.velocity;
+
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Player Input
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -245,6 +256,12 @@ public class PlayerMovementController : MonoBehaviour
         
         // Set player final velocity
         this.SetPlayerVelocity(inputX, inputY, velocity);
+    }
+
+    private void UpdatePlayerRotation(InputInstance inputInstance)
+    {
+        this.rotationX += inputInstance.HorizontalLook * this.mainPlayerController.CameraController.SensitivityX * Time.timeScale;
+        transform.eulerAngles = new Vector3(0.0f, this.rotationX, 0.0f);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -592,34 +609,6 @@ public class PlayerMovementController : MonoBehaviour
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //Climbing
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-    private void ExecuteClimbing(float inputY, Vector3 velocity)
-    {
-        //make player climb up ladders or other surfaces
-        if (this.Climbing)
-        {
-            //climbing var is managed by a ladder script attatched to a trigger that is placed near a ladder
-            if (inputY > 0)
-            {
-                //only climb if player is moving forward
-                //make player climb up or down based on the pitch of the main camera (check mouselook script pitch)
-				this.climbSpeedAmt = 1 + (this.ClimbSpeed*(this.mainPlayerInput.CameraController.RotationY/48));
-                this.climbSpeedAmt = Mathf.Clamp(this.climbSpeedAmt, -this.ClimbSpeed, this.ClimbSpeed);
-                    //limit vertical speed to climb speed
-                //apply climbing velocity to the player's rigidbody
-                this.rigidBody.velocity = new Vector3(velocity.x, this.climbSpeedAmt, velocity.z);
-            }
-            else
-            {
-                //if not moving forward, do not add extra upward velocity, but allow the player to move off the ladder
-                this.rigidBody.velocity = new Vector3(velocity.x, 0, velocity.z);
-            }
-        }
-    }
-    */
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Player Ground Check
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void ApplyPlayerGroundCheck(Vector3 p1, Vector3 p2)
@@ -801,23 +790,21 @@ public class PlayerMovementController : MonoBehaviour
 
     private Vector3 GetCameraRelativeDirection(Vector3 moveDirection)
     {
-        // todo: rework
-        /*
+
         // Force camera to be parallel to the local XZ plane
-		Vector3 tempLocalAngles = this.mainPlayerInput.CameraController.transform.localEulerAngles;
-		this.mainPlayerInput.CameraController.transform.localEulerAngles =
+		Vector3 tempLocalAngles = this.mainPlayerController.CameraController.transform.localEulerAngles;
+		this.mainPlayerController.CameraController.transform.localEulerAngles =
             new Vector3(0,
-				this.mainPlayerInput.CameraController.transform.localEulerAngles.y,
-				this.mainPlayerInput.CameraController.transform.localEulerAngles.z);
+				this.mainPlayerController.CameraController.transform.localEulerAngles.y,
+				this.mainPlayerController.CameraController.transform.localEulerAngles.z);
 
         // realign moveDirection vector to camera relative space
-		moveDirection = this.mainPlayerInput.CameraController.transform.TransformDirection(moveDirection);
+		moveDirection = this.mainPlayerController.CameraController.transform.TransformDirection(moveDirection);
 
         //  Restore camera orientation
-		this.mainPlayerInput.CameraController.transform.localEulerAngles = tempLocalAngles;
+		this.mainPlayerController.CameraController.transform.localEulerAngles = tempLocalAngles;
         return moveDirection;
-        */
-        return moveDirection;
+
     }
 
 
@@ -893,6 +880,26 @@ public class PlayerMovementController : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         TrackCollision(col);
+    }
+    #endregion
+
+    #region Utilities
+    // Function used to limit angles
+    private float ClampAngle(float angle, float min, float max)
+    {
+        angle = angle % 360;
+        if ((angle >= -360F) && (angle <= 360F))
+        {
+            if (angle < -360F)
+            {
+                angle += 360F;
+            }
+            if (angle > 360F)
+            {
+                angle -= 360F;
+            }
+        }
+        return Mathf.Clamp(angle, min, max);
     }
     #endregion
 }
