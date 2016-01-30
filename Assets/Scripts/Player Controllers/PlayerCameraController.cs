@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerCameraController : MonoBehaviour {
 
     // Component references
+    public Camera MainCamera;
     private PlayerController mainPlayerController;
 
     // General camera speeds
@@ -12,6 +13,12 @@ public class PlayerCameraController : MonoBehaviour {
     [Range(0.5f, 8.0f)]
     public float SensitivityX = 2.0f;
     public float SmoothSpeed = 0.35f;
+
+    // Camera collisions
+    public LayerMask CollisionLayerMask;
+    [Range(0,1)]
+    public float CollisionThreshold = 0.1f;
+    private float originalCameraDistance;
 
     // Camera control parameters (rotation)
     private float rotationY = 0.0f;
@@ -23,7 +30,6 @@ public class PlayerCameraController : MonoBehaviour {
     [Range(-90, 90)]
     public float MaximumY = 60f;
 
-
     // Use this for initialization
     public void Initialize (PlayerController playerController) {
         // Store main player component reference
@@ -31,20 +37,28 @@ public class PlayerCameraController : MonoBehaviour {
 
         // Store variables
         this.originalLocalRotation = this.transform.localRotation;
+
+        // Store camera original distance
+        this.originalCameraDistance = Vector3.Distance(this.transform.parent.position, this.MainCamera.transform.position);
     }
 
     // Update is called once per frame
     public void UpdateCamera(InputInstance inputInstance)
     {
+        this.ExecuteCameraVerticalRotation(inputInstance);
+    }
+
+    private void ExecuteCameraVerticalRotation(InputInstance inputInstance)
+    {
         // Get camera vertical rotation
-        this.rotationY += inputInstance.VerticalLook   * this.SensitivityY * Time.timeScale;
+        this.rotationY += inputInstance.VerticalLook*this.SensitivityY*Time.timeScale;
         this.rotationY = this.ClampAngle(this.rotationY, MinimumY, MaximumY);
         Quaternion yQuaternion = Quaternion.AngleAxis(this.rotationY, -Vector3.right);
 
         // Apply smoothed rotation on Y
         Quaternion localEulerRotation = Quaternion.Slerp(this.transform.localRotation,
-                                                     this.originalLocalRotation * yQuaternion,
-                                                     this.SmoothSpeed * Time.smoothDeltaTime * 60 / Time.timeScale);
+            this.originalLocalRotation*yQuaternion,
+            this.SmoothSpeed*Time.smoothDeltaTime*60/Time.timeScale);
         // Apply final camera rotation
         this.transform.localRotation = localEulerRotation;
     }

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 	// Player status
 	[Header("Player Status")]
 	public int HitPoints = 1;
+    public PlayerType Type = PlayerType.Monster;
 
     // Main controllers
     public PlayerInput InputController { get; private set; }
@@ -70,4 +71,10 @@ public class PlayerController : MonoBehaviour
         this.MovementController.FixedUpdateMovement(this.InputController.InputInstance);
     }
     #endregion
+
+    public enum PlayerType
+    {
+        Human,
+        Monster
+    }
 }
