@@ -22,7 +22,10 @@ public class EnvironmentPresenter : MonoBehaviour
     public Vector3 GetValidPlayerSpawnPosition()
     {
         if (this.rooms.Length <= 0)
+        {
+            Debug.LogError("No room detected, please insert rooms as childrens of this gameobject");
             return Vector3.zero;
+        }
         else
         {
             return this.rooms[Random.Range(0, this.rooms.Length - 1)].GetRandomSpawnLocation();
