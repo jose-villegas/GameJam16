@@ -24,20 +24,6 @@ public class PlayerInput : MonoBehaviour
 
         // Initialize input class
         this.InputInstance = new InputInstance();
-
-        // Display connected gamepad
-        this.PrintGamepad();
-
-    }
-
-    void PrintGamepad()
-    {
-        int i = 0;
-        while (i < Input.GetJoystickNames().Length)
-        {
-            Debug.Log(Input.GetJoystickNames()[i]);
-            i++;
-        }
     }
 
     public void UpdateInput()
