@@ -525,6 +525,33 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1 &449021601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449021602}
+  m_Layer: 0
+  m_Name: Spawn Point (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449021602
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449021601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.93, y: 0, z: -2.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544970790}
+  m_RootOrder: 3
 --- !u!1 &480236550
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +794,7 @@ Transform:
   - {fileID: 44804148}
   - {fileID: 480236551}
   - {fileID: 1257268849}
+  - {fileID: 449021602}
   m_Father: {fileID: 1978681383}
   m_RootOrder: 1
 --- !u!1 &562292330
@@ -2808,6 +2836,7 @@ MonoBehaviour:
   - {fileID: 44804148}
   - {fileID: 480236551}
   - {fileID: 1257268849}
+  - {fileID: 449021602}
 --- !u!1 &2059752942
 GameObject:
   m_ObjectHideFlags: 0
