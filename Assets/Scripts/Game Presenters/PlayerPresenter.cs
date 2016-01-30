@@ -15,8 +15,8 @@ public class PlayerPresenter : MonoBehaviour {
     public float[] PlayerScores;
     
     // Player respawn variables
-    [Range(0,1)]
-    public float SafetyOffset = 0.25f;
+    [Range(0,2)]
+    public float SafetyOffset = 1.0f;
     [Range(0,10)]
     public float RespawnDelay = 2.0f;                
 
