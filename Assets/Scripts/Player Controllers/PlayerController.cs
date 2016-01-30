@@ -6,13 +6,8 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Manages the player status
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
-	// Player status
-	[Header("Player Status")]
-	public int HitPoints = 1;
-    public PlayerType Type = PlayerType.Monster;
-
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -71,10 +66,4 @@ public class PlayerController : MonoBehaviour
         this.MovementController.FixedUpdateMovement(this.InputController.InputInstance);
     }
     #endregion
-
-    public enum PlayerType
-    {
-        Human,
-        Monster
-    }
 }
