@@ -397,14 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb236c2421efd1744acdf98dc7d1a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   SensitivityY: 4
   SensitivityX: 2
   SmoothSpeed: 0.35
   CollisionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  CollisionThreshold: 0.1
+    m_Bits: 1
+  CollisionThreshold: 1
   MinimumY: -40
   MaximumY: 40
 --- !u!1 &448595893
@@ -1179,6 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 1
+  Type: 1
 --- !u!1 &704458607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 1
+  Type: 1
 --- !u!1 &779543774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,14 +1377,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb236c2421efd1744acdf98dc7d1a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   SensitivityY: 4
   SensitivityX: 2
   SmoothSpeed: 0.35
   CollisionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  CollisionThreshold: 0.1
+    m_Bits: 1
+  CollisionThreshold: 1
   MinimumY: -40
   MaximumY: 40
 --- !u!1 &812297575
@@ -1457,14 +1457,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb236c2421efd1744acdf98dc7d1a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   SensitivityY: 4
   SensitivityX: 2
   SmoothSpeed: 0.35
   CollisionLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  CollisionThreshold: 0.1
+    m_Bits: 1
+  CollisionThreshold: 1
   MinimumY: -40
   MaximumY: 40
 --- !u!1 &942238809
@@ -1652,6 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 1
+  Type: 1
 --- !u!1 &1172708091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 1
+  Type: 1
 --- !u!1 &1405334498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,14 +2434,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb236c2421efd1744acdf98dc7d1a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   SensitivityY: 4
   SensitivityX: 2
   SmoothSpeed: 0.35
   CollisionLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  CollisionThreshold: 0.1
+  CollisionThreshold: 1
   MinimumY: -40
   MaximumY: 40
 --- !u!1 &1770092289

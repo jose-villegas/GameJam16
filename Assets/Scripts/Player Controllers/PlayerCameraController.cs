@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq.Expressions;
 
 public class PlayerCameraController : MonoBehaviour {
 
     // Component references
-    public Camera MainCamera;
+    private Camera mainCamera;
     private PlayerController mainPlayerController;
 
     // General camera speeds
@@ -33,18 +34,43 @@ public class PlayerCameraController : MonoBehaviour {
     // Use this for initialization
     public void Initialize (PlayerController playerController) {
         // Store main player component reference
+        this.mainCamera = this.GetComponentInChildren<Camera>();
         this.mainPlayerController = playerController;
 
         // Store variables
         this.originalLocalRotation = this.transform.localRotation;
 
         // Store camera original distance
-        this.originalCameraDistance = Vector3.Distance(this.transform.parent.position, this.MainCamera.transform.position);
+        this.originalCameraDistance = Vector3.Distance(this.transform.parent.position, this.mainCamera.transform.position);
     }
 
     // Update is called once per frame
     public void UpdateCamera(InputInstance inputInstance)
     {
+        // Get collision direction
+        Vector3 collisionDirection = this.mainCamera.transform.position - this.transform.parent.position;
+
+        // Detect camera collisions
+        RaycastHit hit;
+        Ray ray = new Ray(this.transform.parent.position, collisionDirection.normalized);
+        if (Physics.SphereCast(ray, this.CollisionThreshold, out hit,
+            this.originalCameraDistance, this.CollisionLayerMask))
+        {
+            float collisionDistance = Vector3.Distance(this.transform.parent.position, hit.point);
+
+            // Set new camera position
+            this.mainCamera.transform.position = this.transform.parent.position +
+                                                 collisionDirection.normalized*
+                                                 collisionDistance;
+        }
+        else
+        {
+            // Set regular camera position
+            this.mainCamera.transform.position = this.transform.parent.position +
+                                                 collisionDirection.normalized*
+                                                 originalCameraDistance;
+        }
+
         this.ExecuteCameraVerticalRotation(inputInstance);
     }
 
@@ -59,6 +85,7 @@ public class PlayerCameraController : MonoBehaviour {
         Quaternion localEulerRotation = Quaternion.Slerp(this.transform.localRotation,
             this.originalLocalRotation*yQuaternion,
             this.SmoothSpeed*Time.smoothDeltaTime*60/Time.timeScale);
+
         // Apply final camera rotation
         this.transform.localRotation = localEulerRotation;
     }
