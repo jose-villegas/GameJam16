@@ -11,17 +11,17 @@ public class RoomPresenter : MonoBehaviour
 	}
 
     // Returns a random spawn location
-    public Vector3 GetRandomSpawnLocation()
+    public Transform GetRandomSpawnLocation()
     {
         if (this.SpawnLocations.Length <= 0)
-            return this.transform.position;
+            return this.transform;
         else
         {
             int spawnIndex = Random.Range(0, SpawnLocations.Length - 1);
 
             Debug.Log(this.gameObject.name + " in Spawn Point: " + spawnIndex);
             
-            return SpawnLocations[spawnIndex].position;
+            return SpawnLocations[spawnIndex];
         }
 
     }

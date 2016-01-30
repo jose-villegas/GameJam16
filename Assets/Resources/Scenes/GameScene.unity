@@ -184,6 +184,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 76929646}
+  - 114: {fileID: 76929647}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -204,6 +205,19 @@ Transform:
   - {fileID: 562292331}
   m_Father: {fileID: 704458608}
   m_RootOrder: 1
+--- !u!114 &76929647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76929645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b57e457e4dafed4bb335b6739f97c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HumanAvatar: {fileID: 0}
+  MonsterAvatar: {fileID: 0}
 --- !u!1 &93122297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1429,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 942238810}
+  - 114: {fileID: 942238811}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -1435,6 +1450,19 @@ Transform:
   - {fileID: 384650116}
   m_Father: {fileID: 1387987905}
   m_RootOrder: 1
+--- !u!114 &942238811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942238809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b57e457e4dafed4bb335b6739f97c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HumanAvatar: {fileID: 0}
+  MonsterAvatar: {fileID: 0}
 --- !u!1 &969681457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1698,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1095621392 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 110460, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_PrefabInternal: {fileID: 1095621391}
+--- !u!114 &1095621393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095621392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b57e457e4dafed4bb335b6739f97c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HumanAvatar: {fileID: 0}
+  MonsterAvatar: {fileID: 0}
 --- !u!1 &1172708091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2099,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1324125986 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 110460, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_PrefabInternal: {fileID: 1324125985}
+--- !u!114 &1324125987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1324125986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b57e457e4dafed4bb335b6739f97c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HumanAvatar: {fileID: 0}
+  MonsterAvatar: {fileID: 0}
 --- !u!1 &1327367362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2550,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -2754,6 +2816,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2059752943}
+  - 114: {fileID: 2059752944}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -2774,3 +2837,16 @@ Transform:
   - {fileID: 51502736}
   m_Father: {fileID: 969681458}
   m_RootOrder: 1
+--- !u!114 &2059752944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2059752942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b57e457e4dafed4bb335b6739f97c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HumanAvatar: {fileID: 0}
+  MonsterAvatar: {fileID: 0}

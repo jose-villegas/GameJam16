@@ -34,6 +34,9 @@ public class PlayerPresenter : MonoBehaviour {
         // Initialize all players
 	    foreach (var player in this.players)
 	        player.Initialize(this);
+
+        // Set initial player positions
+
 	}
 	
 	// Update is called once per frame
@@ -65,8 +68,11 @@ public class PlayerPresenter : MonoBehaviour {
         Debug.Log("Respawning Player: " + player.name);
 
         // Move player to valid respawn location
-        player.transform.position = this.environmentPresenter.GetValidPlayerSpawnPosition();
+        Transform spawnTransform = this.environmentPresenter.GetValidPlayerSpawnTransform();
+        player.transform.position = spawnTransform.position;
+        player.transform.rotation = spawnTransform.rotation;
         player.transform.position += Vector3.up*this.SafetyOffset;
+
         // Restore player stats
         player.Resurrect();
 
