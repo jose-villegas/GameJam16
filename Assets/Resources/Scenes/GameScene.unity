@@ -859,7 +859,7 @@ GameObject:
   - 135: {fileID: 646328408}
   - 23: {fileID: 646328407}
   - 114: {fileID: 646328406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Initial Player Power Up
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -1648,7 +1648,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1199833974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Power Ups
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,6 +13,9 @@ public class PlayerController : Entity
     public PlayerMovementController MovementController { get; private set; }
     public PlayerCameraController CameraController { get; private set; }
 
+    // Collisions
+    public LayerMask GameplayLayerMask;
+
     /// <summary>
     /// Only this player component must use the start and update methods
     /// </summary>
@@ -30,7 +33,6 @@ public class PlayerController : Entity
 	}
 
     #region Player Components Update
-
     // Update is called once per frame
     void Update()
     {
@@ -51,8 +53,6 @@ public class PlayerController : Entity
     // Update player controllers every frame
     private void UpdateControllers()
     {
-        // Update player status
-        // todo:
 
         // Update controlers using updated player input if required
         this.CameraController.UpdateCamera(this.InputController.InputInstance);
@@ -65,5 +65,53 @@ public class PlayerController : Entity
         // note: there is no need to update the input here since it only changes between update frames
         this.MovementController.FixedUpdateMovement(this.InputController.InputInstance);
     }
+    #endregion
+
+    #region Player Events
+
+    public override void ChangeRole(PlayerType newRole, bool respawn = false)
+    {
+        base.ChangeRole(newRole, respawn);
+
+        // todo: change player avatar
+    }
+
+    public override void Kill()
+    {
+        base.Kill();
+
+        // todo: request player respawn
+    }
+
+    #endregion
+
+    #region Collisions
+    public void ReactGameplayCollision(Entity entity)
+    {
+        // Reactions as monster (only the monster reacts to gameplay collisions)
+        if (this.Type == PlayerType.Monster)
+        {
+            switch (entity.Type)
+            {
+                case PlayerType.Human:
+                    // Eat the human and take its role
+                    entity.Kill();
+                    this.ChangeRole(PlayerType.Human);
+                    break;
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (((1 << collision.collider.gameObject.layer) & this.GameplayLayerMask) != 0)
+        {
+            // Check if it's an entity
+            Entity entity = collision.collider.GetComponent<Entity>();
+            if (entity != null)
+                this.ReactGameplayCollision(entity);
+        }
+    }
+
     #endregion
 }

@@ -47,31 +47,39 @@ public class PlayerCameraController : MonoBehaviour {
     // Update is called once per frame
     public void UpdateCamera(InputInstance inputInstance)
     {
+        // Execute camera rotation
+        this.ExecuteCameraVerticalRotation(inputInstance);
+        // Execute camera collisions
+        this.ExecuteCameraCollisions();
+
+    }
+
+    private void ExecuteCameraCollisions()
+    {
         // Get collision direction
-        Vector3 collisionDirection = this.mainCamera.transform.position - this.transform.parent.position;
+        Vector3 collisionDirection = this.mainCamera.transform.position - this.transform.position;
 
         // Detect camera collisions
         RaycastHit hit;
-        Ray ray = new Ray(this.transform.parent.position, collisionDirection.normalized);
+        Ray ray = new Ray(this.transform.position, collisionDirection.normalized);
         if (Physics.SphereCast(ray, this.CollisionThreshold, out hit,
             this.originalCameraDistance, this.CollisionLayerMask))
         {
+            // Set collision distance
             float collisionDistance = Vector3.Distance(this.transform.parent.position, hit.point);
 
             // Set new camera position
-            this.mainCamera.transform.position = this.transform.parent.position +
+            this.mainCamera.transform.position = this.transform.position +
                                                  collisionDirection.normalized*
                                                  collisionDistance;
         }
         else
         {
             // Set regular camera position
-            this.mainCamera.transform.position = this.transform.parent.position +
+            this.mainCamera.transform.position = this.transform.position +
                                                  collisionDirection.normalized*
                                                  originalCameraDistance;
         }
-
-        this.ExecuteCameraVerticalRotation(inputInstance);
     }
 
     private void ExecuteCameraVerticalRotation(InputInstance inputInstance)
