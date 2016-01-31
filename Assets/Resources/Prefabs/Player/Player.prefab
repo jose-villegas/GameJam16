@@ -1755,7 +1755,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 2.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 432040}
@@ -3716,15 +3716,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ef094e72c492749817103b3abc2704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 9
-  WalkSpeed: 4
+  RunSpeed: 15
+  WalkSpeed: 10
   JumpSpeed: 4.43
   ClimbSpeed: 4
   DiveForce: 100
   DiveColdown: 4
   AirSpeedMultiplier: 1
   BackwardSpeedMultiplier: 1
-  CrouchSpeedMultiplier: 0.5
+  CrouchSpeedMultiplier: 1
   StrafeSpeedMultiplier: 1
   ZoomSpeedMultiplier: 1
   SlidingSpeedMultiplier: 1
