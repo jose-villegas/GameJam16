@@ -26,6 +26,10 @@ public class MainMenuPresenter : MonoBehaviour {
     {
         panel.DOKill();
         panel.alpha = show ? 1 : 0;
+
+        if(show)
+            panel.transform.SetAsLastSibling();
+
     }
 
     public void BringToForefront(CanvasGroup panel)

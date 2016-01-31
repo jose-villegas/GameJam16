@@ -11,6 +11,10 @@ public class PlayerUIPresenter : MonoBehaviour
     // UI elements
     public Image ProgressBar;
 
+    // UI Portraits
+    public Image HumanPortrait;
+    public Image WolfPortrait;
+
     // End game messages
     public GameObject VictorMessage;
     public GameObject DrawMessage;
@@ -48,5 +52,19 @@ public class PlayerUIPresenter : MonoBehaviour
 
         // Update scroring
         this.ProgressBar.fillAmount = GamePresenter.Instance.PlayerPresenter.PlayerScores[(int) this.playerController.PlayerId]/GamePresenter.Instance.MatchDuration;
+
+        // Set proper player portrait
+        this.HumanPortrait.gameObject.SetActive(false);
+        this.WolfPortrait.gameObject.SetActive(false);
+        switch (this.playerController.Type)
+        {
+            case Entity.PlayerType.Human:
+                this.HumanPortrait.gameObject.SetActive(true);
+                break;
+            case Entity.PlayerType.Monster:
+                this.WolfPortrait.gameObject.SetActive(true);
+                break;
+
+        }
     }
 }

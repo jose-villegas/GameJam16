@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AudioPresenter : MonoBehaviour {
+public class AudioPresenter : MonoBehaviour
+{
+    // Audio Sources
+    public AudioSource SFXAudioSource;
+
+    // UI Sfx
+    public AudioClip[] ClickSFX = new AudioClip[1];
 
 	// Use this for initialization
 	public void Initialize () {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    //Menu SFX
+    public void PlayClickSFX()
+    {
+        this.SFXAudioSource.PlayOneShot(this.ClickSFX[Random.Range(1, this.ClickSFX.Length -1 )]);
+    }
+
 }
