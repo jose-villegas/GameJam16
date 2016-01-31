@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentMatchState: 0
-  MatchDuration: 10
+  MatchDuration: 180
   CurrentMatchDuration: 0
 --- !u!1 &1667208839
 GameObject:
