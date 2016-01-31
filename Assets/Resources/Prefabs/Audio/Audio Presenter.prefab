@@ -218,6 +218,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFXAudioSource: {fileID: 8259498}
+  CreepySFX:
+  - {fileID: 8300000, guid: 10db0d4dc18439c418bec64042369aea, type: 3}
+  - {fileID: 8300000, guid: d076d21093c0fb744bae9472d1ae45ca, type: 3}
+  - {fileID: 8300000, guid: 7b672fea380d9b147ac537fe54f7a50f, type: 3}
+  MinCreepy: 5
+  MaxCreepy: 15
   WolfSFX:
   - {fileID: 8300000, guid: cbf043573a0b7a949abf4bf224f4a1a2, type: 3}
   - {fileID: 8300000, guid: e589203a0526fe84c9eb45ce6ea51e39, type: 3}
