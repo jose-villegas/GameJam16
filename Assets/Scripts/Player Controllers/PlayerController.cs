@@ -24,6 +24,7 @@ public class PlayerController : Entity
     public PlayerCameraController CameraController { get; private set; }
     public AvatarController PlayerAvatarController { get; private set; }
     public PlayerUIPresenter PlayerUIPresenter { get; private set; }
+    public AudioController PlayerAudioController { get; private set; }
 
     // Collisions
     public LayerMask GameplayLayerMask;
@@ -43,8 +44,10 @@ public class PlayerController : Entity
         this.CameraController = this.GetComponentInChildren<PlayerCameraController>();
         this.PlayerAvatarController = this.GetComponentInChildren<AvatarController>();
         this.PlayerUIPresenter = this.GetComponentInChildren<PlayerUIPresenter>();
+        this.PlayerAudioController = this.GetComponentInChildren<AudioController>();
 
         // Initialize player components
+        this.PlayerAudioController.Initialize();
         this.InputController.Initialize(this);
         this.MovementController.Initialize(this);
         this.CameraController.Initialize(this, cameraConfiguration);
