@@ -22,8 +22,10 @@ public class AvatarController : MonoBehaviour {
     }
 
     #region Avatar Animation
-    public void UpdateMovementAnimation(float inputX, float inputY)
+    public void UpdateMovementAnimation(float inputX, float inputY, bool running)
     {
+        this.currentAvatar.SetBool("Run",running);
+
         this.currentAvatar.SetFloat("InputX", inputX);
         this.currentAvatar.SetFloat("InputY", inputY);
     }
