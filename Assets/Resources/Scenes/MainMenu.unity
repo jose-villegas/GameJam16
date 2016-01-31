@@ -800,6 +800,7 @@ GameObject:
   - 224: {fileID: 642215982}
   - 222: {fileID: 642215984}
   - 114: {fileID: 642215983}
+  - 114: {fileID: 642215985}
   m_Layer: 5
   m_Name: Video Background
   m_TagString: Untagged
@@ -843,7 +844,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 15200000, guid: 5c9029d0a65a8364689cca262dec478b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -856,6 +857,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 642215981}
+--- !u!114 &642215985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 642215981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927d590d5d6a46041ab2d194e28d2f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 642215983}
 --- !u!1 &690119856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1440,7 @@ GameObject:
   - 224: {fileID: 1132228505}
   - 222: {fileID: 1132228507}
   - 114: {fileID: 1132228506}
+  - 114: {fileID: 1132228508}
   m_Layer: 5
   m_Name: Video Background
   m_TagString: Untagged
@@ -1470,7 +1484,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 15200000, guid: 5c9029d0a65a8364689cca262dec478b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1483,6 +1497,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132228504}
+--- !u!114 &1132228508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1132228504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927d590d5d6a46041ab2d194e28d2f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 1132228506}
 --- !u!1 &1217551742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2422,7 @@ GameObject:
   - 224: {fileID: 1643292246}
   - 222: {fileID: 1643292248}
   - 114: {fileID: 1643292247}
+  - 114: {fileID: 1643292249}
   m_Layer: 5
   m_Name: Video Background
   m_TagString: Untagged
@@ -2439,7 +2466,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 525af9ea722a8c94b8beda327563269e, type: 3}
+  m_Texture: {fileID: 15200000, guid: 4376f5607594d1c4c8e0e17d69449a17, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2452,6 +2479,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1643292245}
+--- !u!114 &1643292249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643292245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927d590d5d6a46041ab2d194e28d2f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Image: {fileID: 1643292247}
 --- !u!1 &1752641424
 GameObject:
   m_ObjectHideFlags: 0
