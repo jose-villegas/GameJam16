@@ -12,6 +12,7 @@ public class GamePresenter : MonoBehaviour {
     // Core presenters
     public PlayerPresenter PlayerPresenter { get; private set; }
     public EnvironmentPresenter EnvironmentPresenter { get; private set; }
+    public GlobalUIPresenter UiPresenter { get; private set; }
 
     // Match parameters
     public State CurrentMatchState = State.NonStarted;
@@ -34,9 +35,11 @@ public class GamePresenter : MonoBehaviour {
 	    // Get core presenters
         this.PlayerPresenter = this.GetComponentInChildren<PlayerPresenter>();
         this.EnvironmentPresenter = this.GetComponentInChildren<EnvironmentPresenter>();
+        this.UiPresenter = this.GetComponentInChildren<GlobalUIPresenter>();
 
         // Initialize core presenters
         this.EnvironmentPresenter.Initialize();
+        this.UiPresenter.Initialize();
         this.PlayerPresenter.Initialize(this.EnvironmentPresenter);
 
         // Display connected gamepad
@@ -68,14 +71,26 @@ public class GamePresenter : MonoBehaviour {
         // Display winner
         if (winnerPlayer != null)
         {
-            // todo: display WINNER
-            Debug.Log("WINNER: " + winnerPlayer.gameObject.name);
+            // Display winners and losers
+            foreach (var playerPresenter in this.PlayerPresenter.Players)
+            {
+                // Check if the player is the winner
+                if(playerPresenter == winnerPlayer)
+                    playerPresenter.PlayerUIPresenter.DisplayEndGameMessage(EndGameMessage.Winner);
+                // Check if the player was defeated
+                else
+                    playerPresenter.PlayerUIPresenter.DisplayEndGameMessage(EndGameMessage.Defeated);
+            }
         }
         else
         {
-            // todo: display DRAW
-            Debug.Log("DRAW");
+            // Display draw players
+            foreach (var playerPresenter in this.PlayerPresenter.Players)
+                playerPresenter.PlayerUIPresenter.DisplayEndGameMessage(EndGameMessage.Draw);
         }
+
+        // Display general message
+        this.UiPresenter.DisplayEndGameLayout();
     }
 
 
@@ -106,5 +121,12 @@ public class GamePresenter : MonoBehaviour {
         NonStarted,
         Running,
         Ended
+    }
+
+    public enum EndGameMessage
+    {
+        Winner,
+        Defeated,
+        Draw
     }
 }
