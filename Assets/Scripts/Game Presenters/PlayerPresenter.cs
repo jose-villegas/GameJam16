@@ -9,7 +9,7 @@ public class PlayerPresenter : MonoBehaviour {
     private EnvironmentPresenter environmentPresenter;
 
     // Player references
-    private PlayerController[] players;
+    public PlayerController[] Players { get; private set;}
 
     // Player score references
     [Header("Scoring")]
@@ -50,24 +50,24 @@ public class PlayerPresenter : MonoBehaviour {
         // Store environment presenters
 	    this.environmentPresenter = environmentPresenter;
 
-        // Create players
+        // Create Players
         this.CreatePlayers();
 
         // Generate player score references
-        this.PlayerScores = new float[this.players.Length];
+        this.PlayerScores = new float[this.Players.Length];
 
 
         // If it's a valid value, create the keyboard player
         if (this.KeyboardPlayerIndex >= 0 && this.KeyboardPlayerIndex < this.PlayerAmount)
-            this.players[this.KeyboardPlayerIndex].InputController.InputConfiguration = this.ConfigKeyboard;
+            this.Players[this.KeyboardPlayerIndex].InputController.InputConfiguration = this.ConfigKeyboard;
 
         // Set initial random player positions
-	    Transform[] initialTransforms = this.environmentPresenter.GetSeparateSpawnTransforms(this.players.Length);
-	    if (initialTransforms != null && this.players.Length <= initialTransforms.Length)
+	    Transform[] initialTransforms = this.environmentPresenter.GetSeparateSpawnTransforms(this.Players.Length);
+	    if (initialTransforms != null && this.Players.Length <= initialTransforms.Length)
 	    {
-	        for (int index = 0; index < this.players.Length; index++)
+	        for (int index = 0; index < this.Players.Length; index++)
 	        {
-	            var player = this.players[index];
+	            var player = this.Players[index];
                 this.SetPlayerPosition(player, initialTransforms[index]);
             }
         }
@@ -75,17 +75,17 @@ public class PlayerPresenter : MonoBehaviour {
 
     private void CreatePlayers()
     {
-        this.players = new PlayerController[this.PlayerAmount];
+        this.Players = new PlayerController[this.PlayerAmount];
         for (int i = 0; i < this.PlayerAmount; i++)
         {
-            this.players[i] = Instantiate(this.PlayerPrefab);
-            this.players[i].transform.parent = this.FourPlayersParent;
+            this.Players[i] = Instantiate(this.PlayerPrefab);
+            this.Players[i].transform.parent = this.FourPlayersParent;
         }
 
-        // Initialize all players
-        for (int index = 0; index < this.players.Length; index++)
+        // Initialize all Players
+        for (int index = 0; index < this.Players.Length; index++)
         {
-            var player = this.players[index];
+            var player = this.Players[index];
 
             // Initialize player
             player.Initialize(this,index,this.FourCameraConfiguration[index]);
@@ -121,7 +121,7 @@ public class PlayerPresenter : MonoBehaviour {
     public void RequestPlayerRespawn(PlayerController playerToRespawn)
     {
         // Check if the player is registered
-        if (this.players.Contains(playerToRespawn))
+        if (this.Players.Contains(playerToRespawn))
             StartCoroutine("DelayedRespawn", playerToRespawn);
     }
 
@@ -159,9 +159,9 @@ public class PlayerPresenter : MonoBehaviour {
     // Update the human player score
     private void UpdatePlayerScores()
     {
-        for (var index = 0; index < this.players.Length; index++)
+        for (var index = 0; index < this.Players.Length; index++)
         {
-            var player = this.players[index];
+            var player = this.Players[index];
             // If the player is an human, update his score
             if (player.Type == Entity.PlayerType.Human)
             {
@@ -186,7 +186,7 @@ public class PlayerPresenter : MonoBehaviour {
         if (maxPlayerControllerIndexes.Count > 1)
             return null;
         else
-            return this.players[maxPlayerControllerIndexes[0]];
+            return this.Players[maxPlayerControllerIndexes[0]];
 
     }
 

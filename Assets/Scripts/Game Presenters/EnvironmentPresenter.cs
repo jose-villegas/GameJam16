@@ -42,7 +42,7 @@ public class EnvironmentPresenter : MonoBehaviour
         // Safety check
         if (spawnTransforms.Count < amount)
         {
-            Debug.LogError("Not enough player spawn points/rooms for the requested amount of players");
+            Debug.LogError("Not enough player spawn points/rooms for the requested amount of Players");
             return null;
         }
         

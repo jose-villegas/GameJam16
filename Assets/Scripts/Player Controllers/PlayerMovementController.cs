@@ -222,6 +222,9 @@ public class PlayerMovementController : MonoBehaviour
         this.InputXSmoothed = Mathf.Lerp(this.InputXSmoothed, inputX, Time.deltaTime * 6.0f);
         this.InputYSmoothed = Mathf.Lerp(this.InputYSmoothed, inputY, Time.deltaTime * 6.0f);
 
+        // Send input for movement animation
+        this.mainPlayerController.PlayerAvatarController.UpdateMovementAnimation(this.InputXSmoothed,this.InputYSmoothed, inputInstance.Sprint,this.Crouched);
+
         //This is the start of the large block that performs all movement actions while Grounded	
         if (this.Grounded)
         {
@@ -568,6 +571,7 @@ public class PlayerMovementController : MonoBehaviour
 
             // Execute final jump
             this.rigidBody.velocity = new Vector3(velocity.x, velocity.y, velocity.z) + jumpVector;
+
 
             // Play animation
             this.mainPlayerController.PlayerAvatarController.PlayJumpAnimation();

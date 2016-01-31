@@ -6,6 +6,7 @@ public class PlayerCameraController : MonoBehaviour {
 
     // Component references
     private CameraLightController mainCamera;
+    public Camera UiCamera;
     private PlayerController mainPlayerController;
 
     // General camera speeds
@@ -40,6 +41,7 @@ public class PlayerCameraController : MonoBehaviour {
         // Set camera configuration
         Camera camera = this.mainCamera.GetComponentInChildren<Camera>();
         camera.rect = new Rect(cameraConfiguration.x, cameraConfiguration.y, cameraConfiguration.z, cameraConfiguration.w);
+        UiCamera.rect = camera.rect;
 
         // Initialize light camera
         this.mainCamera.Initialize(playerController);

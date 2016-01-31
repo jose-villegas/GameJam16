@@ -70,8 +70,8 @@ public class InputInstance
             
             this.Sprint = Input.GetKey(config.Sprint);
             this.Crouch = Input.GetKey(config.Crouch);
-            this.Jump = Input.GetKey(config.Jump);
-            this.Dive = Input.GetKey(config.Dive);
+            this.Jump = Input.GetKeyDown(config.Jump);
+            this.Dive = Input.GetKeyDown(config.Dive);
         }
         // Gamepad input
         else
@@ -81,8 +81,8 @@ public class InputInstance
 
             this.Sprint = Input.GetKey(config.GamepadSprint);
             this.Crouch = Input.GetKey(config.GamepadCrouch);
-            this.Jump = Input.GetKey(config.GamepadJump);
-            this.Dive = Input.GetKey(config.GamepadDive);
+            this.Jump = Input.GetKeyDown(config.GamepadJump);
+            this.Dive = Input.GetKeyDown(config.GamepadDive);
         }
     }
 

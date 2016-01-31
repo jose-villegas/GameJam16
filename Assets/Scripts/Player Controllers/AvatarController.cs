@@ -22,14 +22,30 @@ public class AvatarController : MonoBehaviour {
     }
 
     #region Avatar Animation
+
+    public void SetCrouchAnimation(bool crouch)
+    {
+        this.currentAvatar.SetBool("Crunch", crouch);
+    }
+
+    public void UpdateMovementAnimation(float inputX, float inputY, bool running,bool currentCrouch)
+    {
+        this.currentAvatar.SetBool("Run",running);
+
+        this.currentAvatar.SetFloat("InputX", inputX);
+        this.currentAvatar.SetFloat("InputY", inputY);
+
+        this.SetCrouchAnimation(currentCrouch);
+    }
+
     public void PlayDiveAnimation()
     {
-        // todo:
+        this.currentAvatar.SetTrigger("Dive");
     }
 
     public void PlayJumpAnimation()
     {
-        // todo:
+        this.currentAvatar.SetTrigger("Jump");
     }
 
     #endregion
