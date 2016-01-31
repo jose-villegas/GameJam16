@@ -9,6 +9,10 @@ public class CameraLightController : MonoBehaviour {
     // Component references
     private PlayerController mainPlayerController;
 
+    // Camera height
+    public float HumanHeight = 1.0f;
+    public float MonsterHeight = 2.5f;
+
     // Noise effect
     public NoiseAndGrain NoiseVFX;
     [Range(0,10)]
@@ -29,9 +33,13 @@ public class CameraLightController : MonoBehaviour {
         switch (this.mainPlayerController.Type)
         {
             case Entity.PlayerType.Human:
+                this.transform.localPosition = new Vector3(this.transform.localPosition.x,this.HumanHeight, this.transform.localPosition.z);
+
                 this.ManageNoiseVFX();
                 break;
             case Entity.PlayerType.Monster:
+                this.transform.localPosition = new Vector3(this.transform.localPosition.x, this.MonsterHeight, this.transform.localPosition.z);
+
                 this.ManageNoiseVFX(false);
                 break;
         }

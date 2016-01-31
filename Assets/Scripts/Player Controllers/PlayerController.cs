@@ -106,7 +106,8 @@ public class PlayerController : Entity
     {
         base.ChangeRole(newRole, respawn);
 
-        // todo: change player avatar
+        // Change player avatar
+        this.PlayerAvatarController.ChangePlayerAvatar(this.Type);
     }
 
     public override void Kill()
