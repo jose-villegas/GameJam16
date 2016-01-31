@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.27205884, g: 0.27205884, b: 0.27205884, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.6
+  m_AmbientIntensity: 0.3
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -384,6 +384,48 @@ Transform:
   - {fileID: 717933818}
   m_Father: {fileID: 993795938}
   m_RootOrder: 121
+--- !u!1001 &183653306
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1659830662}
+    m_Modifications:
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &186913569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3284,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1633002128}
+        m_MethodName: PlayClickSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1116604160
@@ -4546,6 +4599,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1625213492}
   m_Mesh: {fileID: 4300000, guid: 3dce4c404372d8143bd9a6f8f0954884, type: 3}
+--- !u!4 &1633002127 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 479528, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43, type: 2}
+  m_PrefabInternal: {fileID: 183653306}
+--- !u!114 &1633002128 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407668, guid: 7ce40bc37981a2b4f8fb9456d3fe6c43,
+    type: 2}
+  m_PrefabInternal: {fileID: 183653306}
+  m_Script: {fileID: 11500000, guid: 351383d8888e69f41bae20517693ed80, type: 3}
 --- !u!1 &1637115530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,6 +4699,7 @@ Transform:
   - {fileID: 1667208840}
   - {fileID: 566265210}
   - {fileID: 186913570}
+  - {fileID: 1633002127}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1659830663
