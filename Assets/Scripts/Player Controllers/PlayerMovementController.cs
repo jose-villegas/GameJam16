@@ -301,6 +301,9 @@ public class PlayerMovementController : MonoBehaviour
 
             // Execute final jump
             this.rigidBody.velocity = diveVector;
+
+            // Play animation
+            this.mainPlayerController.PlayerAvatarController.PlayDiveAnimation();
         }
     }
 
@@ -565,6 +568,9 @@ public class PlayerMovementController : MonoBehaviour
 
             // Execute final jump
             this.rigidBody.velocity = new Vector3(velocity.x, velocity.y, velocity.z) + jumpVector;
+
+            // Play animation
+            this.mainPlayerController.PlayerAvatarController.PlayJumpAnimation();
         }
 
         //set jumpBtn to false to prevent continuous Jumping while holding jump button.
