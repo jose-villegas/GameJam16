@@ -10,7 +10,11 @@ public class AvatarController : MonoBehaviour {
     // Possible Avatars
     public Animator HumanAvatar;
     public Animator MonsterAvatar;
-    private Animator currentAvatar;
+    private Animator currentAvatar; 
+
+    // Particle system
+    public GameObject MagicalGirlFX;
+    public float PFXDuration = 3.0f;
 
     // Use this for initialization
     public void Initialize (PlayerController playerController) {
@@ -22,6 +26,21 @@ public class AvatarController : MonoBehaviour {
     }
 
     #region Avatar Animation
+
+    public void ExecuteParticleSystem()
+    {
+        this.MagicalGirlFX.SetActive(false);
+
+        StopCoroutine("DelayedPFXDeactivation");
+        StartCoroutine("DelayedPFXDeactivation");
+    }
+
+    IEnumerator DelayedPFXDeactivation()
+    {
+        this.MagicalGirlFX.SetActive(true);
+        yield return new WaitForSeconds(this.PFXDuration);
+        this.MagicalGirlFX.SetActive(false);
+    }
 
     public void SetCrouchAnimation(bool crouch)
     {
@@ -64,6 +83,8 @@ public class AvatarController : MonoBehaviour {
                 this.MonsterAvatar.gameObject.SetActive(false);
 
                 this.currentAvatar = this.HumanAvatar;
+
+                this.ExecuteParticleSystem();
                 break;
             case Entity.PlayerType.Monster:
                 this.HumanAvatar.gameObject.SetActive(false);
