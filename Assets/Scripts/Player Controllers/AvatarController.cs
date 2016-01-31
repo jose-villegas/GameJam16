@@ -22,14 +22,20 @@ public class AvatarController : MonoBehaviour {
     }
 
     #region Avatar Animation
+    public void UpdateMovementAnimation(float inputX, float inputY)
+    {
+        this.currentAvatar.SetFloat("InputX", inputX);
+        this.currentAvatar.SetFloat("InputY", inputY);
+    }
+
     public void PlayDiveAnimation()
     {
-        // todo:
+        this.currentAvatar.SetTrigger("Dive");
     }
 
     public void PlayJumpAnimation()
     {
-        // todo:
+        this.currentAvatar.SetTrigger("Jump");
     }
 
     #endregion
