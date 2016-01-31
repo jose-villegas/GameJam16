@@ -42,7 +42,7 @@ public class GamePresenter : MonoBehaviour {
         this.EnvironmentPresenter.Initialize();
         this.UiPresenter.Initialize();
         this.PlayerPresenter.Initialize(this.EnvironmentPresenter);
-        this.AudioPresenter.Initialize();
+        this.AudioPresenter.Initialize(true);
 
         // Display connected gamepad
         this.PrintGamepad();

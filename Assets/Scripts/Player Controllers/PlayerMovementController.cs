@@ -225,6 +225,9 @@ public class PlayerMovementController : MonoBehaviour
         // Send input for movement animation
         this.mainPlayerController.PlayerAvatarController.UpdateMovementAnimation(this.InputXSmoothed,this.InputYSmoothed, inputInstance.Sprint,this.Crouched);
 
+        // Send input for movement sfx
+        this.mainPlayerController.PlayerAudioController.UpdateMovementInputSFX(inputX, inputY, inputInstance.Sprint);
+
         //This is the start of the large block that performs all movement actions while Grounded	
         if (this.Grounded)
         {
