@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 public class PlayerCameraController : MonoBehaviour {
 
     // Component references
-    private Camera mainCamera;
+    private CameraLightController mainCamera;
     private PlayerController mainPlayerController;
 
     // General camera speeds
@@ -34,8 +34,11 @@ public class PlayerCameraController : MonoBehaviour {
     // Use this for initialization
     public void Initialize (PlayerController playerController) {
         // Store main player component reference
-        this.mainCamera = this.GetComponentInChildren<Camera>();
+        this.mainCamera = this.GetComponentInChildren<CameraLightController>();
         this.mainPlayerController = playerController;
+
+        // Initialize light camera
+        this.mainCamera.Initialize(playerController);
 
         // Store variables
         this.originalLocalRotation = this.transform.localRotation;
@@ -44,11 +47,13 @@ public class PlayerCameraController : MonoBehaviour {
         this.originalCameraDistance = Vector3.Distance(this.transform.parent.position, this.mainCamera.transform.position);
     }
 
+
     // Update is called once per frame
     public void UpdateCamera(InputInstance inputInstance)
     {
         // Execute camera rotation
         this.ExecuteCameraVerticalRotation(inputInstance);
+
         // Execute camera collisions
         this.ExecuteCameraCollisions();
 

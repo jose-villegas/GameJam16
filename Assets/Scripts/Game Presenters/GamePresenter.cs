@@ -10,8 +10,8 @@ public class GamePresenter : MonoBehaviour {
     }
 
     // Core presenters
-    private PlayerPresenter playerPresenter;
-    private EnvironmentPresenter environmentPresenter;
+    public PlayerPresenter PlayerPresenter { get; private set; }
+    public EnvironmentPresenter EnvironmentPresenter { get; private set; }
 
     // Match parameters
     public State CurrentMatchState = State.NonStarted;
@@ -32,12 +32,12 @@ public class GamePresenter : MonoBehaviour {
     void Start () {
 
 	    // Get core presenters
-        this.playerPresenter = this.GetComponentInChildren<PlayerPresenter>();
-        this.environmentPresenter = this.GetComponentInChildren<EnvironmentPresenter>();
+        this.PlayerPresenter = this.GetComponentInChildren<PlayerPresenter>();
+        this.EnvironmentPresenter = this.GetComponentInChildren<EnvironmentPresenter>();
 
         // Initialize core presenters
-        this.environmentPresenter.Initialize();
-        this.playerPresenter.Initialize(this.environmentPresenter);
+        this.EnvironmentPresenter.Initialize();
+        this.PlayerPresenter.Initialize(this.EnvironmentPresenter);
 
         // Display connected gamepad
         this.PrintGamepad();
@@ -63,7 +63,7 @@ public class GamePresenter : MonoBehaviour {
         this.CurrentMatchState = State.Ended;
 
         // Get player with the highest score
-        PlayerController winnerPlayer = this.playerPresenter.GetHighestScorePlayer();
+        PlayerController winnerPlayer = this.PlayerPresenter.GetHighestScorePlayer();
 
         // Display winner
         if (winnerPlayer != null)

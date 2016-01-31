@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: ec4ebcde96aba3148a7ab8163415fa0e,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -525,6 +526,33 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1 &449021601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449021602}
+  m_Layer: 0
+  m_Name: Spawn Point (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449021602
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449021601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.93, y: 0, z: -2.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 544970790}
+  m_RootOrder: 3
 --- !u!1 &480236550
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +591,7 @@ GameObject:
   - 20: {fileID: 492609081}
   - 124: {fileID: 492609080}
   - 92: {fileID: 492609079}
+  - 114: {fileID: 492609082}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -633,6 +662,17 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &492609082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 492609077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508013975
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +807,7 @@ Transform:
   - {fileID: 44804148}
   - {fileID: 480236551}
   - {fileID: 1257268849}
+  - {fileID: 449021602}
   m_Father: {fileID: 1978681383}
   m_RootOrder: 1
 --- !u!1 &562292330
@@ -902,6 +943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fd7bb93137e8440908da021536b809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HumanLights:
+  - {fileID: 1695485646}
 --- !u!4 &583747974 stripped
 Transform:
   m_PrefabParentObject: {fileID: 474996, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
@@ -1288,6 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 2
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -1621,6 +1665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 1
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -2096,6 +2141,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11449802, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+      propertyPath: Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
   m_IsPrefabParent: 0
@@ -2329,6 +2378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitPoints: 1
   Type: 1
+  PlayerId: 3
   GameplayLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -2517,7 +2567,7 @@ GameObject:
   - 4: {fileID: 1695485645}
   - 108: {fileID: 1695485646}
   m_Layer: 0
-  m_Name: Directional light (Sun)
+  m_Name: Human Light
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2544,7 +2594,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4482758, g: 1, b: 0, a: 1}
   m_Intensity: 0.33
   m_Range: 10
   m_SpotAngle: 30
@@ -2611,6 +2661,7 @@ GameObject:
   - 20: {fileID: 1919609664}
   - 124: {fileID: 1919609663}
   - 92: {fileID: 1919609662}
+  - 114: {fileID: 1919609665}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -2681,6 +2732,32 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1919609665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1919609660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1932153705 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 137908, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_PrefabInternal: {fileID: 1095621391}
+--- !u!114 &1932153706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1932153705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1952620584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,6 +2769,7 @@ GameObject:
   - 20: {fileID: 1952620588}
   - 124: {fileID: 1952620587}
   - 92: {fileID: 1952620586}
+  - 114: {fileID: 1952620589}
   m_Layer: 8
   m_Name: Camera
   m_TagString: Untagged
@@ -2762,6 +2840,17 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &1952620589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1952620584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1978681382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,6 +2897,7 @@ MonoBehaviour:
   - {fileID: 44804148}
   - {fileID: 480236551}
   - {fileID: 1257268849}
+  - {fileID: 449021602}
 --- !u!1 &2059752942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,3 +2940,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HumanAvatar: {fileID: 0}
   MonsterAvatar: {fileID: 0}
+--- !u!1 &2089087060 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 137908, guid: 092b772c32fdfb54d874a43b8a7c5549, type: 2}
+  m_PrefabInternal: {fileID: 1324125985}
+--- !u!114 &2089087061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089087060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class EnvironmentPresenter : MonoBehaviour
 {
+    // Human light references
+    public Light[] HumanLights = new Light[1];
+
+    // Rooms references
     private RoomPresenter[] rooms = new RoomPresenter[0];
 
 	// Use this for initialization

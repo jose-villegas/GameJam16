@@ -35,8 +35,16 @@ public class PlayerPresenter : MonoBehaviour {
 	    foreach (var player in this.players)
 	        player.Initialize(this);
 
-        // Set initial player positions
-
+        // Set initial random player positions
+	    Transform[] initialTransforms = this.environmentPresenter.GetSeparateSpawnTransforms(this.players.Length);
+	    if (initialTransforms != null && this.players.Length <= initialTransforms.Length)
+	    {
+	        for (int index = 0; index < this.players.Length; index++)
+	        {
+	            var player = this.players[index];
+                this.SetPlayerPosition(player, initialTransforms[index]);
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -69,13 +77,18 @@ public class PlayerPresenter : MonoBehaviour {
 
         // Move player to valid respawn location
         Transform spawnTransform = this.environmentPresenter.GetValidPlayerSpawnTransform();
-        player.transform.position = spawnTransform.position;
-        player.transform.rotation = spawnTransform.rotation;
-        player.transform.position += Vector3.up*this.SafetyOffset;
+        this.SetPlayerPosition(player, spawnTransform);
 
         // Restore player stats
         player.Resurrect();
 
+    }
+
+    private void SetPlayerPosition(PlayerController player, Transform spawnTransform)
+    {
+        player.transform.position = spawnTransform.position;
+        player.transform.rotation = spawnTransform.rotation;
+        player.transform.position += Vector3.up*this.SafetyOffset;
     }
 
     #endregion
