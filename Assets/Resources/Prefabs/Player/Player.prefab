@@ -78,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &103902
 GameObject:
   m_ObjectHideFlags: 1
@@ -1143,7 +1143,7 @@ GameObject:
   - 222: {fileID: 22221820}
   - 114: {fileID: 11467092}
   m_Layer: 8
-  m_Name: Timer Bar (Background)
+  m_Name: Time Bar (Wolf)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2714,19 +2714,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8206897, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ccaa2d4a41b83bb4ba300078a25bb08e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12d7fac91d149aa408cf26b42ef2f05f, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.058
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &11449802
@@ -2800,8 +2800,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3416c8d243e7f9440b1751c37526a066, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3415,7 +3415,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0.0000076293945, y: 0}
-  m_SizeDelta: {x: 640, y: 50}
+  m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22428420
 RectTransform:
@@ -3477,7 +3477,7 @@ RectTransform:
   m_GameObject: {fileID: 185190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 22414604}
   m_Father: {fileID: 22464674}
@@ -3485,7 +3485,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 50}
+  m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &100100000
 Prefab:
