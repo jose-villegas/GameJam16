@@ -141,8 +141,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: d1872542c36ae4445b996991acd0eb1e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   ClickSFX:
   - {fileID: 8300000, guid: 3ac2f4e56827b184993b5bc489f4a871, type: 3}
   - {fileID: 8300000, guid: c8d2a1aeba5b65744aa410865a21c070, type: 3}
+  NarrationSFX: {fileID: 8259498}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

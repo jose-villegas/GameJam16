@@ -3285,7 +3285,7 @@ MonoBehaviour:
   HumanAvatar: {fileID: 9573434}
   MonsterAvatar: {fileID: 9575498}
   MagicalGirlFX: {fileID: 195018}
-  PFXDuration: 2.75
+  PFXDuration: 5
 --- !u!114 &11467092
 MonoBehaviour:
   m_ObjectHideFlags: 1
