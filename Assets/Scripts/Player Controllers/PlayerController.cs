@@ -23,6 +23,7 @@ public class PlayerController : Entity
     public PlayerMovementController MovementController { get; private set; }
     public PlayerCameraController CameraController { get; private set; }
     public AvatarController PlayerAvatarController { get; private set; }
+    public PlayerUIPresenter PlayerUIPresenter { get; private set; }
 
     // Collisions
     public LayerMask GameplayLayerMask;
@@ -41,12 +42,14 @@ public class PlayerController : Entity
         this.MovementController = this.GetComponentInChildren<PlayerMovementController>();
         this.CameraController = this.GetComponentInChildren<PlayerCameraController>();
         this.PlayerAvatarController = this.GetComponentInChildren<AvatarController>();
-                                                    
+        this.PlayerUIPresenter = this.GetComponentInChildren<PlayerUIPresenter>();
+
         // Initialize player components
         this.InputController.Initialize(this);
         this.MovementController.Initialize(this);
         this.CameraController.Initialize(this, cameraConfiguration);
         this.PlayerAvatarController.Initialize(this);
+        this.PlayerUIPresenter.Initialize(this);
 	}
 
     #region Player Components Update
