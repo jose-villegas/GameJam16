@@ -14,6 +14,9 @@ public class AudioPresenter : MonoBehaviour
     // Wolf Sfx
     public AudioClip[] WolfSFX = new AudioClip[1];
 
+    // Human SFX
+    public AudioClip[] HumanCapturedSFX = new AudioClip[1];
+
     // UI Sfx
     public AudioClip[] ClickSFX = new AudioClip[1];
 
@@ -33,6 +36,12 @@ public class AudioPresenter : MonoBehaviour
 
             this.SFXAudioSource.PlayOneShot(this.CreepySFX[Random.Range(0, this.CreepySFX.Length - 1)]);
         }
+    }
+
+    public void PlayCapturedHumanSFX()
+    {
+        this.SFXAudioSource.PlayOneShot(this.HumanCapturedSFX[Random.Range(0, this.HumanCapturedSFX.Length - 1)]);
+
     }
 
     // Wolf Sfx

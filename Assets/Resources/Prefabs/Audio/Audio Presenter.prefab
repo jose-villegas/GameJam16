@@ -227,6 +227,8 @@ MonoBehaviour:
   WolfSFX:
   - {fileID: 8300000, guid: cbf043573a0b7a949abf4bf224f4a1a2, type: 3}
   - {fileID: 8300000, guid: e589203a0526fe84c9eb45ce6ea51e39, type: 3}
+  HumanCapturedSFX:
+  - {fileID: 8300000, guid: 814a0c769090254438745746fe5f55c6, type: 3}
   ClickSFX:
   - {fileID: 8300000, guid: 3ac2f4e56827b184993b5bc489f4a871, type: 3}
   - {fileID: 8300000, guid: c8d2a1aeba5b65744aa410865a21c070, type: 3}
@@ -236,7 +238,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: HumanCapturedSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 814a0c769090254438745746fe5f55c6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131090}

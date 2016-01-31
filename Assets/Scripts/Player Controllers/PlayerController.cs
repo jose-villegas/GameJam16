@@ -126,6 +126,9 @@ public class PlayerController : Entity
 
         // Request player respawn
         this.playerPresenter.RequestPlayerRespawn(this);
+
+        // Play sfx
+        GamePresenter.Instance.AudioPresenter.PlayCapturedHumanSFX();
     }
 
     #endregion
