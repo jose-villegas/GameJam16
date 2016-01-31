@@ -223,7 +223,7 @@ public class PlayerMovementController : MonoBehaviour
         this.InputYSmoothed = Mathf.Lerp(this.InputYSmoothed, inputY, Time.deltaTime * 6.0f);
 
         // Send input for movement animation
-        this.mainPlayerController.PlayerAvatarController.UpdateMovementAnimation(this.InputXSmoothed,this.InputYSmoothed, inputInstance.Sprint);
+        this.mainPlayerController.PlayerAvatarController.UpdateMovementAnimation(this.InputXSmoothed,this.InputYSmoothed, inputInstance.Sprint,this.Crouched);
 
         //This is the start of the large block that performs all movement actions while Grounded	
         if (this.Grounded)
