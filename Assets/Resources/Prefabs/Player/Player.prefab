@@ -2954,7 +2954,7 @@ MonoBehaviour:
   MonsterHeight: 2.5
   NoiseVFX: {fileID: 11487188}
   MaxNoise: 10
-  MaxNoiseRange: 30
+  MaxNoiseRange: 45
   MinNoiseRange: 3
 --- !u!114 &11469836
 MonoBehaviour:
