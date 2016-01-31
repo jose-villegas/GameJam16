@@ -15,6 +15,9 @@ public class PlayerController : Entity
     // Main player identifier
     public ID PlayerId = ID.Player1;
 
+    // Flashlight
+    public GameObject FlashLight;
+
     // Main controllers
     public PlayerInput InputController { get; private set; }
     public PlayerMovementController MovementController { get; private set; }
@@ -25,8 +28,12 @@ public class PlayerController : Entity
     public LayerMask GameplayLayerMask;
 
     // Initialize this class
-    public void Initialize(PlayerPresenter playerPresenter)
+    public void Initialize(PlayerPresenter playerPresenter,int index, Vector4 cameraConfiguration)
 	{
+        // Set player identifier
+        this.PlayerId = (ID) index;
+        this.transform.name = this.PlayerId.ToString();
+
         // Set initial player variables
         this.playerPresenter = playerPresenter;
 
@@ -38,7 +45,7 @@ public class PlayerController : Entity
         // Initialize player components
         this.InputController.Initialize(this);
         this.MovementController.Initialize(this);
-        this.CameraController.Initialize(this);
+        this.CameraController.Initialize(this, cameraConfiguration);
         this.PlayerAvatarController.Initialize(this);
 	}
 
@@ -66,6 +73,8 @@ public class PlayerController : Entity
     // Update player controllers every frame
     private void UpdateControllers()
     {
+        // Update flashlight
+        this.FlashLight.gameObject.SetActive(this.Type == PlayerType.Monster);
 
         // Update controlers using updated player input if required
         this.CameraController.UpdateCamera(this.InputController.InputInstance);

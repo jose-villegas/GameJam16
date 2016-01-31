@@ -32,10 +32,14 @@ public class PlayerCameraController : MonoBehaviour {
     public float MaximumY = 60f;
 
     // Use this for initialization
-    public void Initialize (PlayerController playerController) {
+    public void Initialize (PlayerController playerController, Vector4 cameraConfiguration) {
         // Store main player component reference
         this.mainCamera = this.GetComponentInChildren<CameraLightController>();
         this.mainPlayerController = playerController;
+
+        // Set camera configuration
+        Camera camera = this.mainCamera.GetComponentInChildren<Camera>();
+        camera.rect = new Rect(cameraConfiguration.x, cameraConfiguration.y, cameraConfiguration.z, cameraConfiguration.w);
 
         // Initialize light camera
         this.mainCamera.Initialize(playerController);
