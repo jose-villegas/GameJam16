@@ -75,6 +75,9 @@ public class PlayerPresenter : MonoBehaviour {
         // Set initial power up location
         this.environmentPresenter.InitialPlayerPowerUp.transform.position =
             initialTransforms[initialTransforms.Length - 1].position;
+
+        // Play wolf sfx
+        GamePresenter.Instance.AudioPresenter.PlayHowlSFX();
     }
 
     private void CreatePlayers()
@@ -171,6 +174,9 @@ public class PlayerPresenter : MonoBehaviour {
 
         // Restore player stats
         player.Resurrect();
+
+        // Play wolf sfx
+        GamePresenter.Instance.AudioPresenter.PlayHowlSFX();
 
     }
 

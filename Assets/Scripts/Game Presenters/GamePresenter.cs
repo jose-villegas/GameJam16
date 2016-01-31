@@ -13,7 +13,7 @@ public class GamePresenter : MonoBehaviour {
     public PlayerPresenter PlayerPresenter { get; private set; }
     public EnvironmentPresenter EnvironmentPresenter { get; private set; }
     public GlobalUIPresenter UiPresenter { get; private set; }
-
+    public AudioPresenter AudioPresenter { get; private set; }
     // Match parameters
     public State CurrentMatchState = State.NonStarted;
     public float MatchDuration = 180.0f;
@@ -36,11 +36,13 @@ public class GamePresenter : MonoBehaviour {
         this.PlayerPresenter = this.GetComponentInChildren<PlayerPresenter>();
         this.EnvironmentPresenter = this.GetComponentInChildren<EnvironmentPresenter>();
         this.UiPresenter = this.GetComponentInChildren<GlobalUIPresenter>();
+        this.AudioPresenter = this.GetComponentInChildren<AudioPresenter>();
 
         // Initialize core presenters
         this.EnvironmentPresenter.Initialize();
         this.UiPresenter.Initialize();
         this.PlayerPresenter.Initialize(this.EnvironmentPresenter);
+        this.AudioPresenter.Initialize();
 
         // Display connected gamepad
         this.PrintGamepad();

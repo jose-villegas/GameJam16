@@ -218,6 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFXAudioSource: {fileID: 8259498}
+  WolfSFX:
+  - {fileID: 8300000, guid: cbf043573a0b7a949abf4bf224f4a1a2, type: 3}
+  - {fileID: 8300000, guid: e589203a0526fe84c9eb45ce6ea51e39, type: 3}
   ClickSFX:
   - {fileID: 8300000, guid: 3ac2f4e56827b184993b5bc489f4a871, type: 3}
   - {fileID: 8300000, guid: c8d2a1aeba5b65744aa410865a21c070, type: 3}
