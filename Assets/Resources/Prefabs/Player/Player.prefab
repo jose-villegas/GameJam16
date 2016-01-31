@@ -1154,6 +1154,7 @@ GameObject:
   - 114: {fileID: 11468568}
   - 114: {fileID: 11419640}
   - 114: {fileID: 11421716}
+  - 114: {fileID: 11487188}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: Untagged
@@ -2847,6 +2848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d7820b02d1bf041aba53de8c87e326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoiseVFX: {fileID: 11487188}
+  MaxNoise: 9
+  MaxNoiseRange: 15
+  MinNoiseRange: 3
 --- !u!114 &11469836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2996,6 +3001,32 @@ MonoBehaviour:
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
+--- !u!114 &11487188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183240}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9191284b058eef549b7108b5f04e1117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensityMultiplier: 9
+  generalIntensity: 0.5
+  blackIntensity: 1
+  whiteIntensity: 1
+  midGrey: 0.2
+  dx11Grain: 0
+  softness: 0
+  monochrome: 0
+  intensities: {x: 1, y: 1, z: 1}
+  tiling: {x: 64, y: 47.3, z: 64}
+  monochromeTiling: 64
+  filterMode: 0
+  noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
+  noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
+  dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
 --- !u!114 &11494578
 MonoBehaviour:
   m_ObjectHideFlags: 1

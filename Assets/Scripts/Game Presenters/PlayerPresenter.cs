@@ -117,6 +117,30 @@ public class PlayerPresenter : MonoBehaviour {
             this.UpdatePlayerScores();
     }
 
+    #region Utilities
+
+    public PlayerController GetClosestMonsterPlayer(PlayerController pivotController)
+    {
+        float minDistance = Mathf.Infinity;
+        PlayerController closestController = null;
+        foreach (var player in this.Players)
+        {
+            if (player != pivotController && player.Type == Entity.PlayerType.Monster)
+            {
+                float currentDistance = Vector3.Distance(pivotController.transform.position, player.transform.position);
+                if (currentDistance < minDistance)
+                {
+                    minDistance = currentDistance;
+                    closestController = player;
+                }
+            }
+        }
+        return closestController;
+    }
+
+
+    #endregion
+
     #region Respawing
     public void RequestPlayerRespawn(PlayerController playerToRespawn)
     {
