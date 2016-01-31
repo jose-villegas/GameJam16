@@ -47,7 +47,7 @@ public class EnvironmentPresenter : MonoBehaviour
         }
         
         // Return shuffled array
-        return this.ShuffleArray( spawnTransforms.ToArray());
+        return this.Reshuffle( spawnTransforms.ToArray());
     }
 
     // Returns a random spawn location in a random room
@@ -65,16 +65,17 @@ public class EnvironmentPresenter : MonoBehaviour
     }
 
     // Shuffle lists
-    public T[] ShuffleArray<T>(T[] arr)
+    Transform[] Reshuffle(Transform[] texts)
     {
-        for (int i = arr.Length - 1; i > 0; i--)
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int t = 0; t < texts.Length; t++)
         {
-            int r = Random.Range(0, i);
-            T tmp = arr[i];
-            arr[i] = arr[r];
-            arr[r] = tmp;
+            Transform tmp = texts[t];
+            int r = Random.Range(t, texts.Length);
+            texts[t] = texts[r];
+            texts[r] = tmp;
         }
 
-        return arr;
+        return texts;
     }
 }

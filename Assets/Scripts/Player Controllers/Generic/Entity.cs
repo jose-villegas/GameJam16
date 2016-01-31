@@ -13,7 +13,6 @@ public class Entity : MonoBehaviour {
     {
         Debug.Log(this.gameObject.name + " Change type from: "+this.Type +" to: " + newRole);
 
-
         // Set new role
         this.Type = newRole;
     }
