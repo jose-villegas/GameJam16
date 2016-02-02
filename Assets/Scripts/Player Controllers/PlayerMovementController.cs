@@ -12,9 +12,9 @@ public class PlayerMovementController : MonoBehaviour
 
     //player movement speed amounts
     [Header("Default Movement Speed")]
-	[Range(0, 10)]
+	[Range(0, 100)]
     public float RunSpeed = 9.0f;
-	[Range(0, 10)]
+	[Range(0, 100)]
     public float WalkSpeed = 4.0f;
 	[Range(0, 10)]
     public float JumpSpeed = 3.0f;
@@ -44,8 +44,6 @@ public class PlayerMovementController : MonoBehaviour
     public float BackwardSpeedMultiplier = 0.6f; //Multiplier to decrease movement speed while moving backwards
     [Range(0, 1)]
     public float CrouchSpeedMultiplier = 0.55f; //Multiplier to decrease movement speed while crouching
-    [Range(0, 1)]
-    public float StrafeSpeedMultiplier = 0.8f; //Multiplier to decrease movement speed while strafing directly left or right
     [Range(0, 1)]
     public float ZoomSpeedMultiplier = 0.6f; //Multiplier to decrease movement speed while zooming
     [Range(0, 1)]
@@ -164,7 +162,6 @@ public class PlayerMovementController : MonoBehaviour
         //clamp movement modifier Multipliers
         this.BackwardSpeedMultiplier = Mathf.Clamp01(this.BackwardSpeedMultiplier);
         this.CrouchSpeedMultiplier = Mathf.Clamp01(this.CrouchSpeedMultiplier);
-        this.StrafeSpeedMultiplier = Mathf.Clamp01(this.StrafeSpeedMultiplier);
         this.ZoomSpeedMultiplier = Mathf.Clamp01(this.ZoomSpeedMultiplier);
 
         // Store variables
@@ -462,20 +459,11 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         //allow limiting of move speed if strafing directly sideways and not diagonally
-        if (inputX == 0 || inputY != 0)
+        if (this.speedAmtX < 1.0f)
         {
-            if (this.speedAmtX < 1.0f)
-            {
-                this.speedAmtX += Time.deltaTime; //gradually increase variable to neutral
-            }
+            this.speedAmtX += Time.deltaTime; //gradually increase variable to neutral
         }
-        else
-        {
-            if (this.speedAmtX > this.StrafeSpeedMultiplier)
-            {
-                this.speedAmtX -= Time.deltaTime; //gradually decrease variable to strafe limit value
-            }
-        }
+
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -20,6 +20,9 @@ public class AudioPresenter : MonoBehaviour
     // UI Sfx
     public AudioClip[] ClickSFX = new AudioClip[1];
 
+    // Narration
+    public AudioSource NarrationSFX;
+
 	// Use this for initialization
 	public void Initialize (bool enableCreepy = false)
 	{
@@ -36,6 +39,14 @@ public class AudioPresenter : MonoBehaviour
 
             this.SFXAudioSource.PlayOneShot(this.CreepySFX[Random.Range(0, this.CreepySFX.Length - 1)]);
         }
+    }
+
+    public void ManageNarrationSFX(bool state)
+    {
+        if(state)
+            this.NarrationSFX.Play();
+        else
+            this.NarrationSFX.Stop();
     }
 
     public void PlayCapturedHumanSFX()

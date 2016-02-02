@@ -68,7 +68,7 @@ public class InputInstance
             this.StrafeRight = Input.GetKey(config.StrafeRight) ? 1 : 0;
             this.StrafeRight = Input.GetKey(config.StrafeLeft) ? -1 : this.StrafeRight;
             
-            this.Sprint = Input.GetKey(config.Sprint);
+            this.Sprint = !Input.GetKey(config.Sprint);
             this.Crouch = Input.GetKey(config.Crouch);
             this.Jump = Input.GetKeyDown(config.Jump);
             this.Dive = Input.GetKeyDown(config.Dive);
@@ -79,7 +79,7 @@ public class InputInstance
             this.MoveForward = Input.GetAxisRaw(config.GamepadVerticalInput);
             this.StrafeRight = Input.GetAxisRaw(config.GamepadHorizontalInput);
 
-            this.Sprint = Input.GetKey(config.GamepadSprint);
+            this.Sprint = !Input.GetKey(config.GamepadSprint);
             this.Crouch = Input.GetKey(config.GamepadCrouch);
             this.Jump = Input.GetKeyDown(config.GamepadJump);
             this.Dive = Input.GetKeyDown(config.GamepadDive);
